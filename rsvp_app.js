@@ -67,6 +67,13 @@ ul.addEventListener('click', (e) => {
 				listItem.insertBefore(input,span);
 				listItem.removeChild(span);
 				button.textContent = 'save';
+			} else if (button.textContent == 'save'){
+				const input = listItem.firstChild;
+				const span = document.createElement('span');
+				span.textContent = input.value;
+				listItem.insertBefore(span,input);
+				listItem.removeChild(input);
+				button.textContent = 'edit';
 			}
 	}
 });
