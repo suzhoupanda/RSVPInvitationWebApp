@@ -51,11 +51,11 @@ ul.addEventListener('change', (e) => {
 
 ul.addEventListener('click', (e) => {
 	if(e.target.tagName === 'BUTTON'){
-		if(e.target.testContent === 'remove'){
+		if(e.target.textContent === 'remove'){
 			const button = e.target;
 			const listItem = e.target.parentNode;
 			ul.removeChild(listItem);
-			} else if (e.target.testContent === 'edit'){
+			} else if (e.target.textContent === 'edit'){
 				console.log('edit');
 			}
 	}
