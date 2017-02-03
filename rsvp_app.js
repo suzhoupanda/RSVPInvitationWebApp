@@ -11,7 +11,7 @@ var createListItem = function(inputFieldText){
 	span.textContent = inputFieldText;
 	input.value = '';
 	li.appendChild(span);
-	
+
 	const label = document.createElement('label');
 	label.textContent = 'Confirmed';
 	const checkbox = document.createElement('input');
@@ -55,13 +55,18 @@ ul.addEventListener('change', (e) => {
 ul.addEventListener('click', (e) => {
 	if(e.target.tagName === 'BUTTON'){
 		const button = e.target;
-		const button = e.target;
 		const listItem = e.target.parentNode;
 		if(button.textContent === 'remove'){
 			
 			ul.removeChild(listItem);
 			} else if (button.textContent === 'edit'){
-				console.log('edit');
+				const span = listItem.firstChild;
+				const input = document.createElement('input');
+				input.type = 'text';
+				input.value = span.textContent;
+				listItem.insertBefore(input,span);
+				listItem.removeChild(span);
+				button.textContent = 'save';
 			}
 	}
 });
