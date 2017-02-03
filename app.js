@@ -9,19 +9,69 @@ const taskSet = document.querySelector('.task-set');
 const finalText = document.querySelector('.final-text');
 
 
-const firstTask = document.querySelector('.task-item:first-child');
+const firstTask = document.querySelector('.task-set').firstElementChild;
+const lastTask = document.querySelector('.task-set').lastElementChild;
 
-const isSelectedString = "selected";
-const selectedColor = "#afe033";
+
+const defaultColor = "black";
+const selectedColor = "#4286f4";
 firstTask.querySelector('.final-text').style.color = selectedColor;
-
-firstTask.setAttribute("status", isSelectedString);
+const isSelectedValue = "selected";
+firstTask.setAttribute("status", isSelectedValue);
 
 const nextButton = document.querySelector('#selectNextSibling');
 const previousButton = document.querySelector('#selectPreviousSibling');
 
 nextButton.addEventListener('click',(e) => {
-	console.log(e.target + "is currently selected." + "Next item selected...");
+	var taskItems = document.querySelector('.task-set').children;
+	var currentSelection;
+
+	for(var i = 0; i < taskItems.length; i++){
+		var currentTaskItem = taskItems[i];
+		var currentTaskDescription = currentTaskItem.querySelector('.final-text');
+		if(currentTaskItem.getAttribute("status") == isSelectedValue){
+			currentSelection = currentTaskItem;
+			console.log("Task Number " + i +" is the selected task item");
+		}
+	}
+
+	var nextTaskItem = currentSelection.nextElementSibling;
+
+	if(!nextTaskItem){
+		nextTaskItem = firstTask;
+	}
+
+	currentSelection.removeAttribute("status");
+	currentSelection.querySelector('.final-text').style.color = defaultColor;
+	nextTaskItem.setAttribute("status", isSelectedValue);
+	nextTaskItem.querySelector('.final-text').style.color = selectedColor;
+
+});
+
+previousButton.addEventListener('click',(e) => {
+	var taskItems = document.querySelector('.task-set').children;
+	var currentSelection;
+
+	for(var i = 0; i < taskItems.length; i++){
+		var currentTaskItem = taskItems[i];
+		var currentTaskDescription = currentTaskItem.querySelector('.final-text');
+		if(currentTaskItem.getAttribute("status") == isSelectedValue){
+			currentSelection = currentTaskItem;
+			console.log("Task Number " + i +" is the selected task item");
+		}
+	}
+
+	var previousTaskItem = currentSelection.previousElementSibling;
+	
+	if(previousTaskItem == undefined){
+		previousTaskItem = document.querySelector('.task-set').lastElementChild;
+	}
+
+	currentSelection.removeAttribute("status");
+	currentSelection.querySelector('.final-text').style.color = defaultColor;
+	previousTaskItem.setAttribute("status", isSelectedValue);
+	previousTaskItem.querySelector('.final-text').style.color = selectedColor;
+
 });
 
 previousButton.addEventListener('click',(e) => {
@@ -61,7 +111,7 @@ addBlurListeners();
 addTaskButton.addEventListener('click',(e) => {
 	var newTask = document.createElement('div');
 	newTask.className = 'task-item';
-	newTask.innerHTML = "	<p class='task-title'>New Task</p> \n \
+	newTask.innerHTML = "	<p class='task-title'>Another Task</p> \n \
 								<input type='text-input'></input> \n  \
 								<p class='final-text' style='display: inline;'></p> \n \
 								<button type='submit' class='task-edit-button'>Edit</button> \n \

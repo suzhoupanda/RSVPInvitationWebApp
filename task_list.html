@@ -1,21 +1,135 @@
 <!DOCTYPE html>
+
+<!-- Font Types
+
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Bree Serif', serif; 
+
+-->
+
 <html>
+
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
 	<link rel="stylesheet" href="">
+	<link href="https://fonts.googleapis.com/css?family=Bree+Serif|Josefin+Sans" rel="stylesheet">
 </head>
-<body>
-	(h4>p)
-	
-	<button type="submit" id="addTaskButton">Add New Task</button>
-	<button type="submit" id="selectNextSibling">Next Task</button>
-	<button type="submit" id="selectPreviousSibling">Previous Task</button>
 
+<style>
+
+	*{
+		box-sizing: border-box;
+	}
+	
+	.main-wrapper{
+		margin: 0 auto;
+		text-align: center;
+		width:70%;
+		border-width: 2em;
+		border-color: #4286f4;
+		border-style: solid;
+		background-color: #ffe4ba;
+		border-radius: 10%;
+		padding: 3em;
+
+	}
+
+	#banner-container{
+		font-family: 'Josefin Sans', sans-serif;
+	}
+
+	#img-container{
+		width: 60%;
+		height: 8em;
+		margin-bottom: 2em;
+
+	}
+
+	#img-container img{
+		height: 100%;
+		width: auto;
+	}
+
+
+	#header-container{
+		margin-bottom: 2em;
+
+
+	}
+
+	#header-container button{
+		width: 10em;
+		padding: .8em;
+		margin-right: 1em;
+		border-radius: 10%;
+		font-family: 'Josefin Sans', sans-serif;
+
+	}
+
+	.container{
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.task-item{
+		text-align: center;
+		margin-bottom: .5em;
+	}
+
+	.task-item .final-text{
+		margin-right: 3em;
+	}
+
+	.task-item button{
+		font-family: 'Josefin Sans', sans-serif;
+		padding: .8em;
+		border-radius: 20%;
+
+	}
+
+	.task-title{
+		display: inline;
+		margin-right: 1em;
+		font-family: 'Bree Serif', serif; 
+
+	}
+
+	.task-input-field{
+		margin-right: 4em;
+		font-family: 'Bree Serif', serif; 
+
+	}
+
+</style>
+
+
+<body>
+	
+	<div class="main-wrapper">
+	<div class="container" id="banner-container">
+		<h1>Welcome to Task List Generator!</h1>
+	</div>
+
+	
+	<div class="container" id="img-container">
+		<img src="images/header_img3.png" alt="">
+
+	</div>
+
+
+	<div class="container" id="header-container">
+		<button type="submit" id="addTaskButton">Add New Task</button>
+		<button type="submit" id="selectNextSibling">Next Task</button>
+		<button type="submit" id="selectPreviousSibling">Previous Task</button>
+	</div>
+
+	<div class="container">
 	<div class="task-set">
 		<div class="task-item">
-			<p class="task-title">Task 1</p>
+			<p class="task-title">First Task: </p>
 			<input type="text-input" class="task-input-field"></input>
 			<p class="final-text" style="display: inline;"></p>
 
@@ -24,15 +138,16 @@
 		</div>
 
 		<div class="task-item">
-			<p class="task-title">Task 1</p>
+			<p class="task-title">Second Task: </p>
 			<input type="text-input" class="task-input-field"></input>
 			<p class="final-text" style="display: inline;"></p>
 
 			<button type="submit" class="task-edit-button">Edit</button>
 			<button type="submit" class="task-delete-button">Delete</button>
 		</div>
+		</div>
 	</div>
-		
+	</div>
 
 	<script src="app.js" type="text/javascript" charset="utf-8"></script>
 </body>
