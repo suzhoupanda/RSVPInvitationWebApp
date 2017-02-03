@@ -37,3 +37,11 @@ ul.addEventListener('change', (e) => {
 	}
 
 });
+
+ul.addEventListener('click', (e) => {
+	if(e.target.tagName === 'BUTTON'){
+		const button = e.target;
+		const listItem = e.target.parentNode;
+		ul.removeChild(listItem);
+	}
+});
