@@ -7,8 +7,11 @@ const ul = document.getElementById('invitedList');
 
 var createListItem = function(inputFieldText){
 	const li = document.createElement('li');
+	const span = document.createElement('span');
+	span.textContent = inputFieldText;
 	input.value = '';
-	li.textContent = inputFieldText;
+	li.appendChild(span);
+	
 	const label = document.createElement('label');
 	label.textContent = 'Confirmed';
 	const checkbox = document.createElement('input');
