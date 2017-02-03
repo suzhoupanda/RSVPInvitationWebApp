@@ -1,12 +1,17 @@
 /* ================================= 
   Element Styles
+
+Font Families:;
+font-family: 'Vidaloka', serif;
+font-family: 'Playball', cursive;
+font-family: 'Alice', serif;
 ==================================== */
 
 * {
   box-sizing: border-box;
 }
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Vidaloka', serif;
   color: #4c4c4c;
   background: #f8fdf3;
 }
@@ -16,7 +21,7 @@ form button {
   color: white;  
 }
 h1 {
-  font-family: 'Courgette', cursive;
+  font-family:'Playball', cursive;
   text-shadow: 0 1px 0 rgba(0,0,0, .4);
   line-height: .65;
   margin-top: .5em;
