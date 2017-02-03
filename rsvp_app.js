@@ -4,12 +4,11 @@ const input = form.querySelector('input');
 const ul = document.getElementById('invitedList');
 
 
-form.addEventListener('submit',(e) => {
-	event.preventDefault();
-	const text = input.value;
-	const li = document.createElement('li');
-	li.textContent = text;
 
+var createListItem = function(inputFieldText){
+	const li = document.createElement('li');
+	input.value = '';
+	li.textContent = inputFieldText;
 	const label = document.createElement('label');
 	label.textContent = 'Confirmed';
 	const checkbox = document.createElement('input');
@@ -21,9 +20,17 @@ form.addEventListener('submit',(e) => {
 	button.textContent = 'Remove';
 	li.appendChild(button);
 
+	return li;
+}
+
+form.addEventListener('submit',(e) => {
+	event.preventDefault();
+	const text = input.value;
+	const li = createListItem(text);
 	ul.appendChild(li);
-	input.value = '';
 });
+
+
 
 ul.addEventListener('change', (e) => {
 	const checkbox = event.target;
