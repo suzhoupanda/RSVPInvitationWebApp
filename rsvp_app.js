@@ -16,6 +16,11 @@ form.addEventListener('submit',(e) => {
 	checkbox.type = 'checkbox';
 	label.appendChild(checkbox);
 	li.appendChild(label);
+
+	const button = document.createElement('button');
+	button.textContent = 'Remove';
+	li.appendChild(button);
+
 	ul.appendChild(li);
 	input.value = '';
 });
