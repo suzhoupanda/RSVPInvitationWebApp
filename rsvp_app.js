@@ -1,8 +1,41 @@
 
 const form = document.getElementById('registrar');
 const input = form.querySelector('input');
+
+const mainDiv = document.querySelector('.main');
 const ul = document.getElementById('invitedList');
 
+const div = document.createElement('div');
+const filterLabel = document.createElement('label');
+const filterCheckBox = document.createElement('input');
+
+filterLabel.textContent = "Hide those who haven't yet responded";
+filterCheckBox.type = 'checkbox';
+div.appendChild(filterLabel);
+div.appendChild(filterCheckBox);
+mainDiv.insertBefore(div, ul);
+
+// const checkbox_span = document.getElementById('response-span');
+// const checkbox_input = checkbox_span.querySelector('input');
+
+// checkbox_input.addEventListener('change', (e) => {
+// 	if(e.target.tagName == 'INPUT'){
+// 		if(checkbox_input.value == 'on'){
+// 			console.log("Hide the non-respondents");
+// 			const listItems = document.getElementById('invitedList').children;
+// 			console.log(listItems.length);
+// 			for(var i = 0; i < listItems.length; i++){
+// 				var currentListItem = listItems[i];
+// 				var currentCheckbox = currentListItem.querySelector('input');
+// 				console.log(currentCheckbox.value);
+// 				if(currentCheckbox.value == 'on'){
+// 					var li = currentCheckbox.parentNode.parentNode; 
+// 					li.style.display = 'none';
+// 				}
+// 			}
+// 		}
+// 	}
+// });
 
 
 var createListItem = function(inputFieldText){
