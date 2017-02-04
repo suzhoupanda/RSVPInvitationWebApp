@@ -70,22 +70,31 @@ var createListItem = function(inputFieldText){
 		return element;
 	}
 
-	function appendToElement(array,element = li){
-		for(let i = 0; i < array.length; i++){
-			element.appendChild(array[i]);
+	function appendToElement(subelement,element = li){
+
+		if(subelement.length != undefined && subelement.length > 1){
+			for(let i = 0; i < subelement.length; i++){
+				element.appendChild(subelement[i]);
+			}
+		} else {
+			element.appendChild(subelement);
 		}
+
+		return element;
+	
 	}
 
 	const li = document.createElement('li');
 
-	const span = createElement('span','textContent',inputFieldText);
 	const label = createElement('label','textContent','Confirmed');
 	const checkbox = createElement('input','type','checkbox');
-	const editButton = createElement('button','textContent','edit');
-	const removeButton = createElement('button','textContent','remove');
-
-	appendToElement([checkbox],label);
-	appendToElement([span,label,editButton,removeButton]);
+	
+	appendToElement([
+		createElement('span','textContent',inputFieldText),
+		appendToElement(checkbox,label), 
+		createElement('button','textContent','edit'),
+		createElement('button','textContent','remove')
+		]);
 
 	input.value = '';
 
