@@ -127,10 +127,11 @@ ul.addEventListener('click', (e) => {
 	if(e.target.tagName === 'BUTTON'){
 		const button = e.target;
 		const listItem = e.target.parentNode;
-		if(button.textContent === 'remove'){
-			
-			ul.removeChild(listItem);
-			} else if (button.textContent === 'edit'){
+		const nameActions = {
+			remove: () => { 
+				ul.removeChild(listItem);
+			},
+			edit: () => {
 				const span = listItem.firstChild;
 				const input = document.createElement('input');
 				input.type = 'text';
@@ -138,7 +139,8 @@ ul.addEventListener('click', (e) => {
 				listItem.insertBefore(input,span);
 				listItem.removeChild(span);
 				button.textContent = 'save';
-			} else if (button.textContent == 'save'){
+			},
+			save: () => {
 				const input = listItem.firstChild;
 				const span = document.createElement('span');
 				span.textContent = input.value;
@@ -146,6 +148,12 @@ ul.addEventListener('click', (e) => {
 				listItem.removeChild(input);
 				button.textContent = 'edit';
 			}
+		}
+
+		const action = button.textContent;
+		nameActions[action]();
+
+	
 	}
 });
 
