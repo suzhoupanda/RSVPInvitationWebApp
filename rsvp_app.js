@@ -64,25 +64,28 @@ filterCheckBox.addEventListener('change',(e) => {
 
 
 var createListItem = function(inputFieldText){
+	function createElement(elementName,property,value) {
+		const element = document.createElement(elementName);
+		element[property] = value;
+		return element;
+	}
+
 	const li = document.createElement('li');
-	const span = document.createElement('span');
-	span.textContent = inputFieldText;
+
+	const span = createElement('span','textContent',inputFieldText);
 	input.value = '';
+
 	li.appendChild(span);
 
-	const label = document.createElement('label');
-	label.textContent = 'Confirmed';
-	const checkbox = document.createElement('input');
-	checkbox.type = 'checkbox';
+	const label = createElement('label','textContent','Confirmed');
+	const checkbox = createElement('input','type','checkbox');
 	label.appendChild(checkbox);
 	li.appendChild(label);
 
-	const editButton = document.createElement('button');
-	editButton.textContent = 'edit';
+	const editButton = createElement('button','textContent','edit');
 	li.appendChild(editButton);
 
-	const removeButton = document.createElement('button');
-	removeButton.textContent = 'remove';
+	const removeButton = createElement('button','textContent','remove');
 	li.appendChild(removeButton);
 
 	return li;
