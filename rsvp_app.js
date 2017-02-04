@@ -70,23 +70,24 @@ var createListItem = function(inputFieldText){
 		return element;
 	}
 
+	function appendToElement(array,element = li){
+		for(let i = 0; i < array.length; i++){
+			element.appendChild(array[i]);
+		}
+	}
+
 	const li = document.createElement('li');
 
 	const span = createElement('span','textContent',inputFieldText);
-	input.value = '';
-
-	li.appendChild(span);
-
 	const label = createElement('label','textContent','Confirmed');
 	const checkbox = createElement('input','type','checkbox');
-	label.appendChild(checkbox);
-	li.appendChild(label);
-
 	const editButton = createElement('button','textContent','edit');
-	li.appendChild(editButton);
-
 	const removeButton = createElement('button','textContent','remove');
-	li.appendChild(removeButton);
+
+	appendToElement([checkbox],label);
+	appendToElement([span,label,editButton,removeButton]);
+
+	input.value = '';
 
 	return li;
 }
